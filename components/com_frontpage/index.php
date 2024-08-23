@@ -22,6 +22,7 @@ switch ($task)
 		$temoignagePage = getComponent("com_temoignage");
 		$partnerPage = getComponent("com_partner");
 		$BlogsPage = getComponent("com_blog");
+		$Frank = getComponent("com_frank");
 		
 		
         include_once("views/frontpage/list.php");
