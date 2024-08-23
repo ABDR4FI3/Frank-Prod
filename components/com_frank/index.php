@@ -23,3 +23,5 @@ switch ($task) {
     include_once("components/com_frank/views/contact/contact.php");
     break;
 }
+
+

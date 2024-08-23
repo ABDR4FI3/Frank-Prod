@@ -281,7 +281,6 @@
 			</div>
 		</div>
 
-		//* Dynaique testimonials in Owl Carousel
 		<div class="row">
 			<div class="owl-carousel">
 				<?php foreach ($temoignages as $temoignage): ?>
