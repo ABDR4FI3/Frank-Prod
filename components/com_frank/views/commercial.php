@@ -44,6 +44,8 @@ $Commercialdata = [
         'image_link' => 'https://www.frankvito.com/wp-content/uploads/2024/08/section_9_updated.jpg'
     ]
 ];
+// Slice the array into two arrays
+
 
 $contactPage = getComponent("com_contact");
 ?>
