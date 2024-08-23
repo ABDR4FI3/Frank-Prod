@@ -504,7 +504,14 @@ if (!function_exists("GetSQLValueString")) {
 
 
 
-        $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($db->getLink(), $theValue) : mysqli_escape_string($db->getLink(), $theValue);
+        // Ensure $theValue is a string, defaulting to an empty string if null
+        $theValue = $theValue !== null ? (string)$theValue : '';
+
+        // Apply escaping based on function availability
+        $theValue = function_exists("mysqli_real_escape_string")
+        ? mysqli_real_escape_string($db->getLink(), $theValue)
+        : mysqli_escape_string($db->getLink(), $theValue);
+
 
 
 
