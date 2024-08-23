@@ -343,7 +343,7 @@
 </section>
 <!-- End testimonial section -->
 
-<!-- testimonial section -->
+<!-- News Letter section -->
 <section class="newsletter-section py-5 mt-4">
 	<div class="container">
 		<div class="row mb-5">
