@@ -19,6 +19,42 @@ class user {
     private $langue;
 	private $date_add;
 	private $last_edit;
+    private $username;
+    private $firstname;
+    private $lastname;
+    private $id_profil;
+
+    public function getUsername() {
+        return $this->username;
+    }
+
+    public function setUsername($username) {
+        $this->username = $username;
+    }
+
+    public function getFirstname() {
+        return $this->firstname;
+    }
+
+    public function setFirstname($firstname) {
+        $this->firstname = $firstname;
+    }
+
+    public function getLastname() {
+        return $this->lastname;
+    }
+
+    public function setLastname($lastname) {
+        $this->lastname = $lastname;
+    }
+
+    public function getIdProfil() {
+        return $this->id_profil;
+    }
+
+    public function setIdProfil($id_profil) {
+        $this->id_profil = $id_profil;
+    }
     private $connected = false;
     private $dev;
 
@@ -72,9 +108,16 @@ class user {
         return $this->adresse;
     }
 
-    public function getName(){
-        return ucfirst($this->prenom)." ".strtoupper($this->nom);
+    public function getName()
+    {
+        // Ensure both properties are treated as strings
+        $firstName = ucfirst($this->prenom ?? '');
+        $lastName = strtoupper($this->nom ?? '');
+
+        return $firstName . " " . $lastName;
     }
+
+
 
     public function getPrenom(){
         return $this->prenom;

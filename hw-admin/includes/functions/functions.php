@@ -63,9 +63,19 @@ function getTitleOfComponent($option)
 function monthNumToName($mois)
 {
     $tableau = array(
-        "", "Janvier", "F&eacute;vrier",
-        "Mars", "Avril", "Mai", "Juin", "Juillet",
-        "A&ocirc;ut", "Septembre", "Octobre", "Novembre", "D&eacute;cembre"
+        "",
+        "Janvier",
+        "F&eacute;vrier",
+        "Mars",
+        "Avril",
+        "Mai",
+        "Juin",
+        "Juillet",
+        "A&ocirc;ut",
+        "Septembre",
+        "Octobre",
+        "Novembre",
+        "D&eacute;cembre"
     );
 
     return (intval($mois) > 0 && intval($mois)
@@ -75,9 +85,19 @@ function monthNumToName($mois)
 function monthNumToShortName($mois)
 {
     $tableau = array(
-        "", "Janv", "F&eacute;vr",
-        "Mars", "Avr", "Mai", "Juin", "Juill",
-        "A&ocirc;ut", "Sept", "Oct", "Nov", "D&eacute;c"
+        "",
+        "Janv",
+        "F&eacute;vr",
+        "Mars",
+        "Avr",
+        "Mai",
+        "Juin",
+        "Juill",
+        "A&ocirc;ut",
+        "Sept",
+        "Oct",
+        "Nov",
+        "D&eacute;c"
     );
 
     return (intval($mois) > 0 && intval($mois)
@@ -417,7 +437,12 @@ if (!function_exists("GetSQLValueString")) {
         //$theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
 
 
-        $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_string($db->getLink(), $theValue) : mysqli_escape_string($db->getLink(), $theValue);
+        $theValue = $theValue ?? ''; // Default to an empty string if $theValue is null
+
+        $theValue = function_exists("mysqli_real_escape_string")
+        ? mysqli_real_escape_string($db->getLink(), $theValue)
+        : mysqli_escape_string($db->getLink(), $theValue);
+
 
 
         switch ($theType) {
@@ -583,21 +608,21 @@ Header append Vary User-Agent env=!dont-vary
     }
 
     $urls = "";
-	$langues = langue::findAll();
+    $langues = langue::findAll();
     $ids_modules_url = module::findAllUrl();
 
-	foreach ($langues as $langue) {
-		$pages = page::findAll($langue->getCode());
-		foreach ($pages as $page) {
-			$urls .= $page->getSeo();
-		}
-	}
+    foreach ($langues as $langue) {
+        $pages = page::findAll($langue->getCode());
+        foreach ($pages as $page) {
+            $urls .= $page->getSeo();
+        }
+    }
 
-	foreach ($ids_modules_url as $module) {
+    foreach ($ids_modules_url as $module) {
         if ($module->getIdModule() != "com_page") {
-			$classe = $module->getClasse();
+            $classe = $module->getClasse();
             $urls .= $classe::getSeo();
-        } 
+        }
     }
 
     //Url des Langues
@@ -646,7 +671,7 @@ function copy_recursive($src, $dst)
     closedir($dir);
 }
 
-function RedimensionnerImage($source, $type_value = "W", $new_value,  $compression = 70, $sortie = "")
+function RedimensionnerImage($source, $new_value,  $compression = 70, $sortie = "", $type_value = "W")
 {
     /*
       Récupération des dimensions de l'image afin de vérifier

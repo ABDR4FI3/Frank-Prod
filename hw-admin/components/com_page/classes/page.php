@@ -23,9 +23,7 @@ class page
         $this->id = 0;
     }
 
-    public function __destruct()
-    {
-    }
+    public function __destruct() {}
 
     // getters
 
@@ -36,7 +34,8 @@ class page
     public function getType()
     {
 
-        return utf8_encode($this->type);
+        // return utf8_encode($this->type);
+        return mb_convert_encoding($this->type, 'UTF-8', 'ISO-8859-1');
     }
 
     public function getIdGalerie()
@@ -88,7 +87,8 @@ class page
 
     public function getExterne()
     {
-        return utf8_encode($this->externe);
+        // return utf8_encode($this->externe);
+        return mb_convert_encoding($this->externe, 'UTF-8', 'ISO-8859-1');
     }
 
     public function getLangue()
@@ -142,14 +142,21 @@ class page
 
     public function setType($type)
     {
-
-        $this->type = utf8_encode($type);
+        //$this->type = utf8_encode($type);
+        $this->type = mb_convert_encoding($type, 'UTF-8', 'ISO-8859-1');
     }
 
     public function setExterne($externe)
     {
-        $this->externe = utf8_encode($externe);
+        if ($externe !== null) {
+            // Convert encoding if $externe is not null
+            $this->externe = mb_convert_encoding($externe, 'UTF-8', 'ISO-8859-1');
+        } else {
+            // If $externe is null, just assign null to $this->externe
+            $this->externe = $externe;
+        }
     }
+
 
     public function setIdGalerie($id_galerie)
     {
@@ -172,40 +179,42 @@ class page
     }
 
 
-	public function getLink(){
+    public function getLink()
+    {
         global $db, $siteURL;
-        $pageName = $this->langue == 'ar' ? str_replace(' ','-',$this->getTitre()) : url_rewriting($this->getTitre());
-        if($pageName != ''){
-            if(langue::isLangueDefault($this->langue)) {
+        $pageName = $this->langue == 'ar' ? str_replace(' ', '-', $this->getTitre()) : url_rewriting($this->getTitre());
+        if ($pageName != '') {
+            if (langue::isLangueDefault($this->langue)) {
                 return $siteURL . $pageName . '/';
-            }else{
-                return $siteURL . $this->langue. '/' . $pageName . '/';
+            } else {
+                return $siteURL . $this->langue . '/' . $pageName . '/';
             }
-        }else
-            return 'index.php?option=com_page&id='.$this->id;
+        } else
+            return 'index.php?option=com_page&id=' . $this->id;
     }
 
-    public function getSeo(){
+    public function getSeo()
+    {
         global $db;
         $url = "";
         $lang = langue::findByCode($this->langue);
         if ($this->getTitre() != '') {
-			
-			$titre = $lang->getCode() == 'ar' ? str_replace(' ','-',$this->getTitre()) : url_rewriting($this->getTitre());
-            
-			if ($this->getType() == 'page') {
-                if($lang->isDefault()) {
+
+            $titre = $lang->getCode() == 'ar' ? str_replace(' ', '-', $this->getTitre()) : url_rewriting($this->getTitre());
+
+            if ($this->getType() == 'page') {
+                if ($lang->isDefault()) {
                     $url = "RewriteRule ^" . $titre . "/$ index.php?option=com_page&id=" . $this->getId() . "&l=" . $lang->getCode() . " [L]\r\n";
-                }else{
-                    $url = "RewriteRule ^". $lang->getCode() ."/". $titre . "/$ index.php?option=com_page&id=" . $this->getId() . "&l=" . $lang->getCode() . " [L]\r\n";
+                } else {
+                    $url = "RewriteRule ^" . $lang->getCode() . "/" . $titre . "/$ index.php?option=com_page&id=" . $this->getId() . "&l=" . $lang->getCode() . " [L]\r\n";
                 }
             } else if ($this->getType() == 'lien') {
-                if($lang->isDefault()) {
+                if ($lang->isDefault()) {
                     $url = "RewriteRule ^" . $titre . "/$ " . $this->getExterne() . "&id=" . $this->getId() . "&l=" . $lang->getCode() . " [L]\r\n";
-					$url .= "RewriteRule ^" . $titre . "/([0-9]+)/$ " . $this->getExterne() . "&page=$1&l=" . $lang->getCode() . " [L]\r\n";
-                }else{
-                    $url = "RewriteRule ^" . $lang->getCode() ."/". $titre . "/$ " . $this->getExterne() . "&id=" . $this->getId() . "&l=" . $lang->getCode() . " [L]\r\n";
-					$url .= "RewriteRule ^" . $lang->getCode() ."/". $titre . "/([0-9]+)/$ " . $this->getExterne() . "&page=$1&l=" . $lang->getCode() . " [L]\r\n";
+                    $url .= "RewriteRule ^" . $titre . "/([0-9]+)/$ " . $this->getExterne() . "&page=$1&l=" . $lang->getCode() . " [L]\r\n";
+                } else {
+                    $url = "RewriteRule ^" . $lang->getCode() . "/" . $titre . "/$ " . $this->getExterne() . "&id=" . $this->getId() . "&l=" . $lang->getCode() . " [L]\r\n";
+                    $url .= "RewriteRule ^" . $lang->getCode() . "/" . $titre . "/([0-9]+)/$ " . $this->getExterne() . "&page=$1&l=" . $lang->getCode() . " [L]\r\n";
                 }
             }
         }
@@ -254,7 +263,7 @@ class page
             "UPDATE " . static::$table . " SET type=%s, id_galerie=%s, photo=%s, active=%s WHERE id=%s ",
             GetSQLValueString($this->getType(), "text"),
             GetSQLValueString($this->getIdGalerie(), "int"),
-			GetSQLValueString($this->photo, "text"),
+            GetSQLValueString($this->photo, "text"),
             GetSQLValueString($this->getActive(), "int"),
             GetSQLValueString($this->getId(), "int")
         );
