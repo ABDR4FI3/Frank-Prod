@@ -1,70 +1,70 @@
 <!--Main Slider-->
 <section class="main-slider">
-	<div class="rev_slider_wrapper fullwidthbanner-container"  id="rev_slider_one_wrapper" data-source="gallery">
+	<div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
 		<div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
 			<ul>
-				<?php foreach($slides as $slide): ?>
+				<?php foreach ($slides as $slide): ?>
 
-				<li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-<?php echo $slide->getId(); ?>" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="<?php echo $siteURL; ?>images/slides/<?php echo $slide->getPhoto(); ?>" data-title="Slide Title" data-transition="parallaxvertical">
+					<li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-<?php echo $slide->getId(); ?>" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="<?php echo $siteURL; ?>images/slides/<?php echo $slide->getPhoto(); ?>" data-title="Slide Title" data-transition="parallaxvertical">
 
-				<div class="tp-caption frank" 
-				data-paddingbottom="[0,0,0,0]"
-				data-paddingleft="[0,0,0,0]"
-				data-paddingright="[0,0,0,0]"
-				data-paddingtop="[0,0,0,0]"
-				data-responsive_offset="on"
-				data-type="text"
-				data-height="['700','700','700','700']"
-				data-width="['400','400','400','400']"
-				data-whitespace="normal"
-				data-hoffset="['15','15','15','15']"
-				data-voffset="['60','60','60','60']"
-				data-x="['middle','middle','middle','middle']"
-				data-y="['middle','middle','middle','middle']"
-				data-textalign="['top','top','top','top']"
-				data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-					<img src="images/frank.png" alt="Frank">
-				</div>
+						<div class="tp-caption frank"
+							data-paddingbottom="[0,0,0,0]"
+							data-paddingleft="[0,0,0,0]"
+							data-paddingright="[0,0,0,0]"
+							data-paddingtop="[0,0,0,0]"
+							data-responsive_offset="on"
+							data-type="text"
+							data-height="['700','700','700','700']"
+							data-width="['400','400','400','400']"
+							data-whitespace="normal"
+							data-hoffset="['15','15','15','15']"
+							data-voffset="['60','60','60','60']"
+							data-x="['middle','middle','middle','middle']"
+							data-y="['middle','middle','middle','middle']"
+							data-textalign="['top','top','top','top']"
+							data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
+							<img src="images/frank.png" alt="Frank">
+						</div>
 
-				<div class="tp-caption textbox" 
-				data-paddingbottom="[0,0,0,0]"
-				data-paddingleft="[0,0,0,0]"
-				data-paddingright="[0,0,0,0]"
-				data-paddingtop="[0,0,0,0]"
-				data-responsive_offset="on"
-				data-type="text"
-				data-height="none"
-				data-width="['360','360','360','360']"
-				data-whitespace="normal"
-				data-hoffset="['15','15','15','15']"
-				data-voffset="['60','-60','-70','-50']"
-				data-x="['left','left','left','left']"
-				data-y="['middle','middle','middle','middle']"
-				data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-					<span class="name"><strong>Frank</strong>vito</span>
-					<span class="title"><small>UHNWI</small><br>Investment Advisor</span>
-					<p>Providing Tailored Solution for Every Client, All Under One Roof.</p>
-					<a href="" class="btn-gradian">Contact Us</a>
-				</div>
+						<div class="tp-caption textbox"
+							data-paddingbottom="[0,0,0,0]"
+							data-paddingleft="[0,0,0,0]"
+							data-paddingright="[0,0,0,0]"
+							data-paddingtop="[0,0,0,0]"
+							data-responsive_offset="on"
+							data-type="text"
+							data-height="none"
+							data-width="['360','360','360','360']"
+							data-whitespace="normal"
+							data-hoffset="['15','15','15','15']"
+							data-voffset="['60','-60','-70','-50']"
+							data-x="['left','left','left','left']"
+							data-y="['middle','middle','middle','middle']"
+							data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
+							<span class="name"><strong>Frank</strong>vito</span>
+							<span class="title"><small>UHNWI</small><br>Investment Advisor</span>
+							<p>Providing Tailored Solution for Every Client, All Under One Roof.</p>
+							<a href="" class="btn-gradian">Contact Us</a>
+						</div>
 
-				<div class="tp-caption signature" 
-				data-paddingbottom="[0,0,0,0]"
-				data-paddingleft="[0,0,0,0]"
-				data-paddingright="[0,0,0,0]"
-				data-paddingtop="[0,0,0,0]"
-				data-responsive_offset="on"
-				data-type="text"
-				data-height="none"
-				data-width="['250','250','250','250']"
-				data-whitespace="normal"
-				data-hoffset="['360','15','15','15']"
-				data-voffset="['50','30','20','15']"
-				data-x="['middle','middle','middle','middle']"
-				data-y="['middle','middle','middle','middle']"
-				data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-					<img src="<?php echo $siteURL; ?>images/footer-logo.png" alt="Frank">
-				</div>
-				</li>
+						<div class="tp-caption signature"
+							data-paddingbottom="[0,0,0,0]"
+							data-paddingleft="[0,0,0,0]"
+							data-paddingright="[0,0,0,0]"
+							data-paddingtop="[0,0,0,0]"
+							data-responsive_offset="on"
+							data-type="text"
+							data-height="none"
+							data-width="['250','250','250','250']"
+							data-whitespace="normal"
+							data-hoffset="['360','15','15','15']"
+							data-voffset="['50','30','20','15']"
+							data-x="['middle','middle','middle','middle']"
+							data-y="['middle','middle','middle','middle']"
+							data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
+							<img src="<?php echo $siteURL; ?>images/footer-logo.png" alt="Frank">
+						</div>
+					</li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
@@ -150,11 +150,11 @@
 					<strong>Driven by a clear goal : Maximizing returns on your Investment.</strong><br>
 					Frank Vito comprend les nuances du marché immobilier de Dubaï et propose des solutions sur mesure quelle que soit votre expérience en investissement.
 				</p>
-				<a href="#" class="btn-gradian">find out more</a>
+				<a href="<?php echo $contactPage->getLink(); ?>" class="btn-gradian">find out more</a>
 			</div>
 		</div>
 	</div>
-</section>	
+</section>
 
 <section class="why-section py-5">
 	<div class="container">
@@ -172,11 +172,11 @@
 			</div>
 		</div>
 	</div>
-</section>	
+</section>
 
 <section class="invest-section book-section py-5">
 	<div class="container">
-		<div class="row">			
+		<div class="row">
 			<div class="col-sm-5 column-text">
 				<div class="textbox">
 					<p class="sub-title">Frank <span>vito</span></p>
@@ -196,13 +196,13 @@
 
 <section class="management-section py-5">
 	<div class="container">
-		<div class="row">	
+		<div class="row">
 			<div class="col-sm-12">
 				<h3>The Perfect Place to Manage Your Property</h3>
 				<p>Work with the best suite of property management tools on the market.</p>
-			</div>	
+			</div>
 		</div>
-		<div class="row">	
+		<div class="row">
 			<div class="col-sm-5 offset-1">
 				<div class="item-management">
 					<h4>Advertise Your Rental</h4>
@@ -223,7 +223,7 @@
 
 <section class="invest-guide-section py-5">
 	<div class="container mb-5">
-		<div class="row">	
+		<div class="row">
 			<div class="col-sm-12 text-center">
 				<h2 class="xxl-title">Investing Guides</h2>
 				<p>Our articles, guides, and videos help you through the process, start to finish.</p>
@@ -282,7 +282,7 @@
 	<div class="container mt-5 pt-5">
 		<a href="#" class="btn-gradian">Find more articles</a>
 	</div>
-</section>	
+</section>
 
 <section class="video-section py-5">
 	<div class="container">

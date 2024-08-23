@@ -16,6 +16,7 @@ switch ($task)
 		$partners = partner::findAll($_SESSION['lang'], true);
 		
 		$contactPage = getComponent("com_contact");
+		
 		$productPage = getComponent("com_produit");
 		$temoignagePage = getComponent("com_temoignage");
 		$partnerPage = getComponent("com_partner");

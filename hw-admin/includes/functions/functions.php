@@ -440,8 +440,8 @@ if (!function_exists("GetSQLValueString")) {
         $theValue = $theValue ?? ''; // Default to an empty string if $theValue is null
 
         $theValue = function_exists("mysqli_real_escape_string")
-        ? mysqli_real_escape_string($db->getLink(), $theValue)
-        : mysqli_escape_string($db->getLink(), $theValue);
+            ? mysqli_real_escape_string($db->getLink(), $theValue)
+            : mysqli_escape_string($db->getLink(), $theValue);
 
 
 
