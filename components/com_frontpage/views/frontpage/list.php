@@ -207,14 +207,14 @@
 				<div class="item-management">
 					<h4>Advertise Your Rental</h4>
 					<p>Connect with more than 75 million renters looking for new homes using our comprehensive marketing platform. List Your Property.</p>
-					<a href="#" class="btn-gradian">Find out more</a>
+					<a href="<?php echo $contactPage->getLink(); ?>" class="btn-gradian">Find out more</a>
 				</div>
 			</div>
 			<div class="col-sm-5">
 				<div class="item-management">
 					<h4>Advertise Your Rental</h4>
 					<p>Connect with more than 75 million renters looking for new homes using our comprehensive marketing platform. List Your Property.</p>
-					<a href="#" class="btn-gradian">Find out more</a>
+					<a href="<?php echo $contactPage->getLink(); ?>" class="btn-gradian">Find out more</a>
 				</div>
 			</div>
 		</div>
@@ -231,56 +231,29 @@
 		</div>
 	</div>
 	<div class="container-fluid pt-4 g-0">
-		<div class="row item-guide g-0">
-			<div class="col-sm-6">
-				<div class="textbox">
-					<h3>Top 10 Villa Contracting Companies in Dubai</h3>
-					<p>Dubai, often referred to as the “City of Dreams,” is popular for its luxurious lifestyle, innovation, and architectural marvels. Somewhere…</p>
-					<span class="date">May 31, 2024</span>
-					<a href="#0" class="btn-more"><i class="fa fa-arrow-right"></i></a>
+		<?php foreach ($blogs as $blog): ?>
+			<div class="row item-guide g-0">
+				<div class="col-sm-6">
+					<div class="textbox">
+						<h3><?php echo $blog->getTitre(); ?></h3>
+						<p><?php echo $blog->getExtrait(); ?></p>
+						<span class="date"><?php echo $blog->getDateAdd(); ?></span>
+						<a href="<?php echo $blog->getLink(); ?>" class="btn-more">
+							<i class="fa fa-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="imgbox">
+						<img src="images/blog/<?php echo $blog->getPhoto(); ?>" alt="<?php echo $blog->getTitre(); ?>">
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-6">
-				<div class="imgbox">
-					<img src="images/guide1.jpg" alt="">
-				</div>
-			</div>
-		</div>
+		<?php endforeach; ?>
 
-		<div class="row item-guide g-0">
-			<div class="col-sm-6">
-				<div class="textbox">
-					<h3>A Comprehensive Guide to the Top 5 Schools in Business Bay</h3>
-					<p>Business Bay, Dubai's thriving commercial and residential hub, has become a magnet for professionals, entrepreneurs, and families seeking a dynamic…</p>
-					<span class="date">May 31, 2024</span>
-					<a href="#0" class="btn-more"><i class="fa fa-arrow-right"></i></a>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="imgbox">
-					<img src="images/guide2.jpg" alt="">
-				</div>
-			</div>
-		</div>
-
-		<div class="row item-guide g-0">
-			<div class="col-sm-6">
-				<div class="textbox">
-					<h3>The Top 10 Bars in Downtown Dubai</h3>
-					<p>Dubai, often referred to as the City of Gold, is renowned for its stunning skyline, extravagant lifestyle, and boundless opportunities.…</p>
-					<span class="date">May 31, 2024</span>
-					<a href="#0" class="btn-more"><i class="fa fa-arrow-right"></i></a>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="imgbox">
-					<img src="images/guide3.jpg" alt="">
-				</div>
-			</div>
-		</div>
 	</div>
 	<div class="container mt-5 pt-5">
-		<a href="#" class="btn-gradian">Find more articles</a>
+		<a href="<?php echo $BlogsPage->getLink() ?>" class="btn-gradian">Find more articles</a>
 	</div>
 </section>
 
@@ -307,43 +280,65 @@
 				<p>Our articles, guides, and videos help you through the process, start to finish.</p>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="item-testimonial">
-					<div class="top">
-						<i class="fa fa-quote-left"></i>
-						<span class="rating"><i class="fa fa-star"></i> (4.8/5)</span>
-					</div>
-					<div class="textbox">
-						<p>"Working with Frank Vito has been an exceptional experience. His in-depth knowledge, meticulous attention to detail, and personalized approach have significantly impacted my financial success. Frank's strategic insights and unwavering support have been invaluable. I highly recommend his services to anyone seeking expert financial advice. Thank you, Frank, for your commitment and outstanding expertise!"</p>
-					</div>
-					<div class="bottom">
-						<div class="name">Anna</div>
-						<div class="avatar">
-							<img src="" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="col-sm-6">
-				<div class="item-testimonial">
-					<div class="top">
-						<i class="fa fa-quote-left"></i>
-						<span class="rating"><i class="fa fa-star"></i> (4.8/5)</span>
-					</div>
-					<div class="textbox">
-						<p>"Working with Frank Vito has been an exceptional experience. His in-depth knowledge, meticulous attention to detail, and personalized approach have significantly impacted my financial success. Frank's strategic insights and unwavering support have been invaluable. I highly recommend his services to anyone seeking expert financial advice. Thank you, Frank, for your commitment and outstanding expertise!"</p>
-					</div>
-					<div class="bottom">
-						<div class="name">Anna</div>
-						<div class="avatar">
-							<img src="" alt="">
+		//* Dynaique testimonials in Owl Carousel
+		<div class="row">
+			<div class="owl-carousel">
+				<?php foreach ($temoignages as $temoignage): ?>
+					<div class="item-testimonial">
+						<div class="top">
+							<i class="fa fa-quote-left"></i>
+							<span class="rating"><i class="fa fa-star"></i> (4.8/5)</span>
+						</div>
+						<div class="textbox">
+							<p><?php echo $temoignage->getTemoignage(); ?></p>
+						</div>
+						<div class="bottom">
+							<div class="name"><?php echo $temoignage->getNom(); ?></div>
+							<div class="avatar">
+								<img src="<?php echo $temoignage->getPhoto(); ?>" alt="">
+							</div>
 						</div>
 					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
+		<!-- <div class="row">
+			<div class="col-sm-6">
+				<div class="item-testimonial">
+					<div class="top">
+						<i class="fa fa-quote-left"></i>
+						<span class="rating"><i class="fa fa-star"></i> (4.8/5)</span>
+					</div>
+					<div class="textbox">
+						<p>"Working with Frank Vito has been an exceptional experience. His in-depth knowledge, meticulous attention to detail, and personalized approach have significantly impacted my financial success. Frank's strategic insights and unwavering support have been invaluable. I highly recommend his services to anyone seeking expert financial advice. Thank you, Frank, for your commitment and outstanding expertise!"</p>
+					</div>
+					<div class="bottom">
+						<div class="name">Anna</div>
+						<div class="avatar">
+							<img src="" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="item-testimonial">
+					<div class="top">
+						<i class="fa fa-quote-left"></i>
+						<span class="rating"><i class="fa fa-star"></i> (4.8/5)</span>
+					</div>
+					<div class="textbox">
+						<p>"Working with Frank Vito has been an exceptional experience. His in-depth knowledge, meticulous attention to detail, and personalized approach have significantly impacted my financial success. Frank's strategic insights and unwavering support have been invaluable. I highly recommend his services to anyone seeking expert financial advice. Thank you, Frank, for your commitment and outstanding expertise!"</p>
+					</div>
+					<div class="bottom">
+						<div class="name">Anna</div>
+						<div class="avatar">
+							<img src="" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
 	</div>
 </section>
 <!-- End testimonial section -->
