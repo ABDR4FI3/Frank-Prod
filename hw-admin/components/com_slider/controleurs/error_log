@@ -1,0 +1,7 @@
+[27-Apr-2021 13:44:06 Europe/Paris] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_escape_string() in /home/merzgvvw/public_html/hw-admin/includes/functions/functions.php:398
+Stack trace:
+#0 /home/merzgvvw/public_html/hw-admin/components/com_slider/controleur/slider.php(121): GetSQLValueString('1', 'int')
+#1 /home/merzgvvw/public_html/hw-admin/components/com_slider/controleur/slider.php(23): editSlide(Array)
+#2 {main}
+  thrown in /home/merzgvvw/public_html/hw-admin/includes/functions/functions.php on line 398
+[06-May-2021 15:56:04 Europe/Paris] PHP Notice:  Undefined index: langue in /home/merzgvvw/public_html/hw-admin/components/com_slider/controleur/slider.php on line 188
