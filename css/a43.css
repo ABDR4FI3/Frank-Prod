@@ -103,3 +103,52 @@
   height: 450px;
   background-size: cover;
 }
+
+.blurred-section {
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 20px;
+  overflow: hidden;
+}
+
+.image-container {
+  padding: 35px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.image-container img {
+  flex-basis: 25%;
+  max-width: 24% !important; /* Ensure images don't exceed 24% of the container width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+/* .a43_images {
+} */
+
+.image-container img:nth-child(1),
+.image-container img:nth-child(3) {
+  transform: translateY(-20px);
+}
+
+.image-container img:nth-child(2),
+.image-container img:nth-child(4) {
+  transform: translateY(20px);
+}
+
+/* Hover effect for the first and third images: translate further up and scale */
+.image-container img:nth-child(1):hover,
+.image-container img:nth-child(3):hover {
+    transform: translateY(-25px) scale(1.1);
+}
+
+/* Hover effect for the second and fourth images: translate further down and scale */
+.image-container img:nth-child(2):hover,
+.image-container img:nth-child(4):hover {
+    transform: translateY(25px) scale(1.1);
+}
