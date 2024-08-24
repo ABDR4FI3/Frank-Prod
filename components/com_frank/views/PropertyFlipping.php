@@ -28,25 +28,27 @@ $second = array(
 </section>
 
 <!-- Detail 1  Section -->
-<section class="detail-section">
-    <div class="row item-guide g-0">
-        <div class="col-sm-6">
-            <div class="textbox">
-                <h3><?php echo $investmentArray['title']; ?></h3>
-                <p><?php echo $investmentArray['text']; ?></p>
-                <div class="sub-text-container">
-                    <div class="sub-text">
-                        <p> <?php echo $investmentArray['sub1']; ?></p>
-                    </div>
-                    <div class="sub-text">
-                        <p> <?php echo $investmentArray['sub2']; ?></p>
-                    </div>
+<section class="invest-section opportunity py-5">
+    <div class="container">
+        <div class="row" style="flex-direction: row-reverse;">
+            <div class="col-sm-6">
+                <div class="imgbox">
+                    <img src="<?php echo $investmentArray['image']; ?>" alt="">
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="imgbox">
-                <img src="<?php echo $investmentArray['image']; ?>" alt="<">
+            <div class="col-sm-6">
+                <div class="textbox">
+                    <h3><?php echo $investmentArray['title']; ?></h3>
+                    <p><?php echo $investmentArray['text']; ?></p>
+                    <div class="sub-text-container">
+                        <div class="sub-text">
+                            <p> <?php echo $investmentArray['sub1']; ?></p>
+                        </div>
+                        <div class="sub-text">
+                            <p> <?php echo $investmentArray['sub2']; ?></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -71,41 +73,43 @@ $second = array(
         <a class="btn-gradian">Learn More</a>
     </div>
 </section>
-<!-- Detail 2  Section -->
-<section>
-    <div class="row item-guide g-0" style="flex-direction: row-reverse;">
-        <div class="col-sm-6">
-            <div class="textbox">
-                <h3><?php echo $second['title']; ?></h3>
-                <p class="overide">
-                    <span class="Bold-text">Purchase Price:</span> <?php echo $second['Purchase Price:']; ?>
-                </p>
-                <p class="overide">
-                    <span class="Bold-text">DLD Fee (4% of 33 million):</span> <?php echo $second['DLD'] ?>
-                </p>
-                <p class="overide">
-                    <span class="Bold-text">Broker Fees (2 %):</span> <?php echo $second['Broker']; ?>
-                </p>
-                <p class="overide">
-                    <span class="Bold-text">Renovation Cost:</span> <?php echo $second['Renovation']; ?>
-                </p>
-                <p class="overide">
-                    <span class="Bold-text">NOC Fee:</span> <?php echo $second['NOC']; ?>
-                </p>
-                <p class="overide">
-                    <span class="Bold-text">Total Investment:</span><br><?php echo $second['TotalInvestment']; ?>
-                </p>
-                <p class="overide">
-                    <span class="Bold-text">Returns:</span><br><?php echo $second['Returns']; ?>
-                </p>
-                <p class="overide">
-                    <span class="Bold-text">Resell Value:</span><br><?php echo $second['ResellValue']; ?>
-                </p>
+
+<section class="invest-section opportunity py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="imgbox">
+                    <img src="<?php echo $second['image']; ?>" alt="">
+                </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="imgbox">
-                <img src="<?php echo $second['image']; ?>" alt="<">
+            <div class="col-sm-6">
+                <div class="textbox">
+                    <h3><?php echo $second['title']; ?></h3>
+                    <p class="overide">
+                        <span class="Bold-text">Purchase Price:</span> <?php echo $second['Purchase Price:']; ?>
+                    </p>
+                    <p class="overide">
+                        <span class="Bold-text">DLD Fee (4% of 33 million):</span> <?php echo $second['DLD'] ?>
+                    </p>
+                    <p class="overide">
+                        <span class="Bold-text">Broker Fees (2 %):</span> <?php echo $second['Broker']; ?>
+                    </p>
+                    <p class="overide">
+                        <span class="Bold-text">Renovation Cost:</span> <?php echo $second['Renovation']; ?>
+                    </p>
+                    <p class="overide">
+                        <span class="Bold-text">NOC Fee:</span> <?php echo $second['NOC']; ?>
+                    </p>
+                    <p class="overide">
+                        <span class="Bold-text">Total Investment:</span><br><?php echo $second['TotalInvestment']; ?>
+                    </p>
+                    <p class="overide">
+                        <span class="Bold-text">Returns:</span><br><?php echo $second['Returns']; ?>
+                    </p>
+                    <p class="overide">
+                        <span class="Bold-text">Resell Value:</span><br><?php echo $second['ResellValue']; ?>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
