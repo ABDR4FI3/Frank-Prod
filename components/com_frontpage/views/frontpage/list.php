@@ -281,7 +281,6 @@
 			</div>
 		</div>
 
-		//* Dynaique testimonials in Owl Carousel
 		<div class="row">
 			<div class="owl-carousel">
 				<?php foreach ($temoignages as $temoignage): ?>
@@ -343,7 +342,7 @@
 </section>
 <!-- End testimonial section -->
 
-<!-- testimonial section -->
+<!-- News Letter section -->
 <section class="newsletter-section py-5 mt-4">
 	<div class="container">
 		<div class="row mb-5">

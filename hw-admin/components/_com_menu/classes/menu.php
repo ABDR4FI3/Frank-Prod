@@ -4,7 +4,7 @@ class menu
 {
     static $table =  __prefixe_db__ . "menu";
     static $table2 =  __prefixe_db__ . "details_menu";
-	
+
     private $id;
     private $titre;
 
@@ -13,9 +13,7 @@ class menu
         $this->id = 0;
     }
 
-    public function __destruct()
-    {
-    }
+    public function __destruct() {}
 
     public function getId()
     {
@@ -91,7 +89,7 @@ class menu
             return 0;
     }
 
-	public function getMenu($lang = 'fr', $deep = 0, $position = 'main')
+    public function getMenu($lang = 'fr', $deep = 0, $position = 'main')
     {
         global $db, $siteURL;
         $SQLselect = "SELECT A.id FROM " . __prefixe_db__ . "menu_items A
@@ -100,97 +98,104 @@ class menu
 					  AND parent_id = 0
 					  AND langue = '" . $lang . "' 
 					  ORDER BY ordre ASC";
-		//echo $SQLselect;
+        //echo $SQLselect;
         $result = $db->query($SQLselect);
         if ($db->num_rows($result) > 0) {
             $result = $db->queryS($SQLselect);
             foreach ($result as $data) {
                 $mi = menu_item::find($data['id'], $lang);
                 $blank = $mi->isBlank() ? 'target="_blank"' : '';
-				if($position == 'main'){
-					$classLi = ($mi->hasSousMenu()) ? 'dropdown' : '';
-					$classA = ($mi->hasSousMenu()) ? '' : '';
-					$attrLi = ($mi->hasSousMenu()) ? '' : '';
-					$attrA = ($mi->hasSousMenu()) ? '' : '';
-				}elseif($position == 'bottom'){
-					$classLi = '';
-					$classA = '';
-					$attrLi = '';
-					$attrA = '';
-				}else{
-					$classLi = '';
-					$classA = '';
-					$attrLi = '';
-					$attrA = '';
-				}
-				
+                if ($position == 'main') {
+                    $classLi = ($mi->hasSousMenu()) ? 'dropdown' : '';
+                    $classA = ($mi->hasSousMenu()) ? '' : '';
+                    $attrLi = ($mi->hasSousMenu()) ? '' : '';
+                    $attrA = ($mi->hasSousMenu()) ? '' : '';
+                } elseif ($position == 'bottom') {
+                    $classLi = '';
+                    $classA = '';
+                    $attrLi = '';
+                    $attrA = '';
+                } else {
+                    $classLi = '';
+                    $classA = '';
+                    $attrLi = '';
+                    $attrA = '';
+                }
+
 
                 if ($mi->getType() == 'page') {
                     $classLi .= (!isset($_GET['task']) && isset($_GET['id']) && $_GET['id'] == $mi->getIdItem()) ? ' current' : '';
                 }
-                if($mi->getType() == 'ext' && $mi->getLink() == $siteURL && !isset($_GET['id']) && isHome()){
+                if ($mi->getType() == 'ext' && $mi->getLink() == $siteURL && !isset($_GET['id']) && isHome()) {
                     $classLi .=  ' current';
                 }
-                ?>
-            <li id="itemNav-<?php echo $mi->getId(); ?>" class="<?php echo $classLi; ?>" <?php echo $attrLi; ?>>
-                <a href="<?php echo $mi->getLink(); ?>" <?php echo $blank; ?> class="<?php echo $classA; ?>" <?php echo $attrA; ?> >
-					<?php echo $mi->getTitre(); ?></a>
-                <?php
-                if ($mi->hasSousMenu() && $deep == 0) {
-                    echo '<ul>';
-                    $SQLselect = "SELECT A.id FROM " . __prefixe_db__ . "menu_items A
+?>
+                <li
+                    id="itemNav-<?php echo $mi->getId(); ?>"
+                    class="<?php echo $classLi; ?>"
+                    <?php echo $attrLi; ?>>
+                    <a href="<?php echo $mi->getLink(); ?>"
+                        <?php echo $blank; ?>
+                        class="<?php echo $classA; ?>"
+                        <?php echo $attrA; ?>>
+                        <?php echo $mi->getTitre(); ?>
+                    </a>
+                    <?php
+                    if ($mi->hasSousMenu() && $deep == 0) {
+                        echo '<ul>';
+                        $SQLselect = "SELECT A.id FROM " . __prefixe_db__ . "menu_items A
 									  JOIN " . __prefixe_db__ . "details_menu_items B ON A.id = B.id_menu_item
 									  WHERE id_menu = " . $this->id . "
 									  AND parent_id = " . $mi->getId() . "
 									  AND langue = '" . $lang . "' 
 									  ORDER BY ordre ASC";
-                    $result2 = $db->queryS($SQLselect);
-                    foreach ($result2 as $data2) {
-                        $classLi = "";
-                        $mi = menu_item::find($data2['id'], $lang);
-                        $blank = $mi->isBlank() ? 'target="_blank"' : '';
+                        $result2 = $db->queryS($SQLselect);
+                        foreach ($result2 as $data2) {
+                            $classLi = "";
+                            $mi = menu_item::find($data2['id'], $lang);
+                            $blank = $mi->isBlank() ? 'target="_blank"' : '';
 
-						$classLi .= (isset($_GET['id']) && $_GET['id'] == $mi->getIdItem()) ? ' current' : '';
-                        ?>
-                    <li class="<?php echo $classLi; ?>">
-                        <a href="<?php echo $mi->getLink(); ?>" <?php echo $blank; ?>><?php echo $mi->getTitre(); ?></a>
-                        <?php
-                        if ($mi->hasSousMenu() && $deep == 0) {
-                            echo '<ul>';
-                            $SQLselect = "SELECT A.id FROM " . __prefixe_db__ . "menu_items A
+                            $classLi .= (isset($_GET['id']) && $_GET['id'] == $mi->getIdItem()) ? ' current' : '';
+                    ?>
+                <li class="<?php echo $classLi; ?>">
+                    <a href="<?php echo $mi->getLink(); ?>" <?php echo $blank; ?>><?php echo $mi->getTitre(); ?></a>
+                    <?php
+                            if ($mi->hasSousMenu() && $deep == 0) {
+                                echo '<ul>';
+                                $SQLselect = "SELECT A.id FROM " . __prefixe_db__ . "menu_items A
 												  JOIN " . __prefixe_db__ . "details_menu_items B ON A.id = B.id_menu_item
 												  WHERE id_menu = " . $this->id . "
 												  AND parent_id = " . $mi->getId() . "
 												  AND langue = '" . $lang . "' 
 												  ORDER BY ordre ASC";
-                            $result3 = $db->queryS($SQLselect);
-                            foreach ($result3 as $data3) {
-                                $classLi = "";
-                                $mi = menu_item::find($data3['id'], $lang);
-                                $blank = $mi->isBlank() ? 'target="_blank"' : '';
+                                $result3 = $db->queryS($SQLselect);
+                                foreach ($result3 as $data3) {
+                                    $classLi = "";
+                                    $mi = menu_item::find($data3['id'], $lang);
+                                    $blank = $mi->isBlank() ? 'target="_blank"' : '';
 
-                                if ($mi->getType() == 'page') {
-                                    $classLi .= (isset($_GET['id']) && $_GET['id'] == $mi->getIdItem()) ? 'current' : '';
-                                }else{
-                                    $classLi .= (isset($_GET['id']) && $_GET['id'] == $mi->getIdItem()) ? 'current' : '';
-                                }
-                                ?>
-                                <li class="<?php echo $classLi; ?>">
-                                    <a href="<?php echo $mi->getLink(); ?>" <?php echo $blank; ?>><?php echo $mi->getTitre(); ?></a>
-                                </li>
-                                <?php
-                            }
-                            echo '</ul>';
-                        }
-                        ?>
-                        </li>
-                        <?php
-                    }
-                    echo '</ul>';
-                }
-                ?>
+                                    if ($mi->getType() == 'page') {
+                                        $classLi .= (isset($_GET['id']) && $_GET['id'] == $mi->getIdItem()) ? 'current' : '';
+                                    } else {
+                                        $classLi .= (isset($_GET['id']) && $_GET['id'] == $mi->getIdItem()) ? 'current' : '';
+                                    }
+                    ?>
+                <li class="<?php echo $classLi; ?>">
+                    <a href="<?php echo $mi->getLink(); ?>" <?php echo $blank; ?>><?php echo $mi->getTitre(); ?></a>
                 </li>
-                <?php
+        <?php
+                                }
+                                echo '</ul>';
+                            }
+        ?>
+        </li>
+<?php
+                        }
+                        echo '</ul>';
+                    }
+?>
+</li>
+<?php
             }
         }
     }
