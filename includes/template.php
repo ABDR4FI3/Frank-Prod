@@ -92,6 +92,8 @@
 	<link href="<?php echo $siteURL; ?>css/oualid.css" rel="stylesheet">
 
 	<link href="<?php echo $siteURL; ?>css/a43.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 	<link href="<?php echo $siteURL; ?>css/responsive.css" rel="stylesheet">
 
@@ -273,7 +275,7 @@
 
 	<script src="<?php echo $siteURL; ?>js/owl.carousel.min.js"></script>
 
-	
+
 	<script src="<?php echo $siteURL; ?>js/main-slider-script.js"></script>
 
 	<script src="<?php echo $siteURL; ?>js/bootstrap.min.js"></script>

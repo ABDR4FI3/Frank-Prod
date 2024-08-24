@@ -167,6 +167,20 @@
   color: white;
   overflow: hidden;
 }
+.Blog_Banner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%; /* Adjust this to control how much of the image fades out */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 100%
+  );
+  pointer-events: none; /* Ensures that the gradient overlay doesn't interfere with any interactive elements */
+}
 .Blog_Banner::before {
   content: "";
   position: absolute;
@@ -206,39 +220,95 @@
   content: "";
   height: 1200px;
   width: 1200px;
-  background: url("http://localhost/FrankVito/images/blure.png") no-repeat;
+  background: url("/FrankVito/images/blure.png") no-repeat;
   background-size: contain;
   position: absolute;
-  top: -300px;
+  top: 100px;
   left: -300px;
   z-index: -100;
 }
 
 .Center_Blog_Categorie {
   width: max-content;
-  background: rgba(87, 84, 84, 0.552);
   padding: 20px;
 }
 
-.Blog_Detail_Image{
+.Blog_Detail_Image {
   width: 100%;
   height: 500px;
   object-fit: cover;
 }
-.content-side{
+.content-side {
   padding: 20px;
 }
-.info-links{
+.info-links {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
-.info-links li{
+.info-links li {
   display: flex;
   gap: 5px;
   align-items: center;
 }
-.Suggested_Blog_Image{
+.Suggested_Blog_Image {
   width: 100%;
   object-fit: cover;
+}
+
+
+.Blog_Categorie {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Adjust spacing between items */
+    padding: 0;
+}
+
+.Blog_Categorie li {
+    position: relative;
+    font-size: 16px;
+}
+
+.Blog_Categorie li a {
+    text-decoration: none;
+    color: white;
+}
+
+.Blog_Categorie li:nth-child(1) a,
+.Blog_Categorie li:nth-child(2) a {
+    color: white; /* First two items white */
+}
+
+.Blog_Categorie li:nth-child(3) {
+    color: #d5ac63; /* Third item color */
+}
+
+.Blog_Categorie li:not(:last-child)::after {
+    content: "\f054"; /* Unicode for FontAwesome chevron-right */
+    font-family: "Font Awesome 5 Free"; /* FontAwesome family */
+    font-weight: 900; /* FontAwesome solid style */
+    margin-left: 10px; /* Space between text and icon */
+    color: white; /* Color of the arrow */
+    position: absolute;
+    right: -15px; /* Adjust positioning as needed */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Blog_Categorie li:nth-child(3) {
+    color: #d5ac63; /* Third item color */
+}
+
+.Blog_Categorie li:nth-child(3)::after {
+    color: #d5ac63; /* Change arrow color for the third item */
+}
+.navigation{
+  background-color: transparent !important;
+}
+.page-link{
+  background-color: transparent !important;
+  color: #d5ac63 !important;
+  border: 1px solid;
+  border-color: white !important;
 }
