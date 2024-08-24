@@ -25,6 +25,10 @@ switch ($task)
 		$Frank = getComponent("com_frank");
 		
 		
-        include_once("views/frontpage/list.php");
+        if ($contactPage === null) {
+            echo "Contact page component is not available.";
+        } else {
+            include_once("views/frontpage/list.php");
+        }
         break;
 }

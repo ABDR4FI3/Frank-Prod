@@ -88,7 +88,11 @@
 	<link href="<?php echo $siteURL; ?>plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
 	<link href="<?php echo $siteURL; ?>plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
 	<link href="<?php echo $siteURL; ?>css/style.css" rel="stylesheet">
+
+	<link href="<?php echo $siteURL; ?>css/oualid.css" rel="stylesheet">
+
 	<link href="<?php echo $siteURL; ?>css/a43.css" rel="stylesheet">
+
 	<link href="<?php echo $siteURL; ?>css/responsive.css" rel="stylesheet">
 
 	<!--Color Themes-->
