@@ -84,7 +84,7 @@ class config
         return $this->description;
     }
 
-    public function getLogo()
+    public function     getLogo()
     {
         return $this->logo;
     }

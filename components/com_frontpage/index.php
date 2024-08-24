@@ -24,6 +24,10 @@ switch ($task)
 		$BlogsPage = getComponent("com_blog");
 		
 		
-        include_once("views/frontpage/list.php");
+        if ($contactPage === null) {
+            echo "Contact page component is not available.";
+        } else {
+            include_once("views/frontpage/list.php");
+        }
         break;
 }
